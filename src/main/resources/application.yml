@@ -1,0 +1,19 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+      database: journaldb
+      auto-index-creation: true
+
+jwt:
+  secret: ${JWT_SECRET}
+
+server:
+  port: ${PORT:8080}
+
+weather:
+  api:
+    key: ${WEATHER_API_KEY}
+
+frontend:
+  url: ${FRONTEND_URL}

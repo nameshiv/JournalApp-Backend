@@ -1,0 +1,112 @@
+HELP.md
+
+# =========================
+# Maven / Build
+# =========================
+
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+
+# =========================
+# Maven Wrapper
+# =========================
+
+.mvn/wrapper/maven-wrapper.jar
+
+
+# =========================
+# Environment / Secrets
+# =========================
+
+.env
+.env.*
+!.env.example
+
+# Local Spring configuration
+src/main/resources/application-dev.yml
+src/main/resources/application-dev.yaml
+src/main/resources/application-local.yml
+src/main/resources/application-local.yaml
+
+*.properties.local
+*.yml.local
+
+
+# =========================
+# IntelliJ IDEA
+# =========================
+
+.idea/
+*.iws
+*.iml
+*.ipr
+
+
+# =========================
+# Eclipse / STS
+# =========================
+
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+.apt_generated
+
+
+# =========================
+# NetBeans
+# =========================
+
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+
+# =========================
+# VS Code
+# =========================
+
+.vscode/
+
+
+# =========================
+# Logs
+# =========================
+
+*.log
+logs/
+journalApp.log
+
+# =========================
+# OS Files
+# =========================
+
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+
+# =========================
+# Node
+# =========================
+
+node_modules/
+bower_components/
+
+
+# =========================
+# Reports / Generated Files
+# =========================
+
+/htmlReport

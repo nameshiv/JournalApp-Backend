@@ -21,6 +21,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.Arrays;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.http.HttpMethod;
 
 @Configuration
 @EnableWebSecurity
@@ -32,25 +33,13 @@ public class SpringSecurity  extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtFilter jwtFilter;
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.authorizeRequests()
-//                .antMatchers("/journal/**", "/user/**").authenticated()
-//                .antMatchers("/admin/**").hasRole("ADMIN")
-//                .anyRequest().permitAll();
-////                .httpBasic(); //Basic Auth
-////        http.csrf().disable();
-//        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf().disable();
-//        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-//    }
-
-//new one for cors
-@Override
-protected void configure(HttpSecurity http) throws Exception {
-    http
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http
             .cors()
             .and()
             .authorizeRequests()
+            .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             .antMatchers("/journal/**", "/user/**").authenticated()
             .antMatchers("/admin/**").hasRole("ADMIN")
             .anyRequest().permitAll()
@@ -60,8 +49,8 @@ protected void configure(HttpSecurity http) throws Exception {
             .and()
             .csrf().disable();
 
-    http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-}
+            http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+    }
 
     @Value("${frontend.url}")
     private String frontendUrl;

@@ -119,7 +119,7 @@ public class UserService {
     }
 
     public List<User> getAll() {
-        return userRepository.findAllByOrderByCreatedAtDesc();
+        return userRepository.findAll();
     }
 
     public Optional<User> findById(ObjectId id) {

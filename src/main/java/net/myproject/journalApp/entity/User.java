@@ -3,7 +3,7 @@ package net.myproject.journalApp.entity;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.*;
-import net.myproject.journalApp.controller.ObjectIdSerializer;
+import net.myproject.journalApp.config.ObjectIdSerializer;
 import net.myproject.journalApp.enums.Sentiment;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;

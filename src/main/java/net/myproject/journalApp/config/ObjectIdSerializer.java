@@ -1,4 +1,4 @@
-package net.myproject.journalApp.controller;
+package net.myproject.journalApp.config;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;

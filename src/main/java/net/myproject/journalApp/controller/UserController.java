@@ -2,6 +2,7 @@ package net.myproject.journalApp.controller;
 
 import net.myproject.journalApp.api.response.WeatherResponse;
 import net.myproject.journalApp.dtos.SentimentAnalysisRequest;
+import net.myproject.journalApp.dtos.UserResponse;
 import net.myproject.journalApp.entity.User;
 import net.myproject.journalApp.repository.UserRepository;
 import net.myproject.journalApp.service.UserService;
@@ -55,7 +56,17 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        return new ResponseEntity<>(userInDb, HttpStatus.OK);
+        UserResponse response = new UserResponse();
+
+        response.setId(userInDb.getId());
+        response.setUsername(userInDb.getUsername());
+        response.setRoles(userInDb.getRoles());
+        response.setSentimentAnalysis(userInDb.isSentimentAnalysis());
+        response.setWeeklySentiment(userInDb.getWeeklySentiment());
+        response.setWeeklySentimentCounts(userInDb.getWeeklySentimentCounts());
+        response.setJournalEntries(userInDb.getJournalEntries());
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 
